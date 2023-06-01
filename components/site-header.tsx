@@ -14,6 +14,7 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             <Link
+              title="Github"
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
@@ -29,6 +30,23 @@ export function SiteHeader() {
               </div>
             </Link>
             <Link
+              title="LinkedIn"
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "sm",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </div>
+            </Link>
+            <Link
+              title="Twitter"
               href={siteConfig.links.twitter}
               target="_blank"
               rel="noreferrer"

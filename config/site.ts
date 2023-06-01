@@ -9,10 +9,15 @@ export const siteConfig = {
       title: "Home",
       href: "/",
     },
+    {
+      title: "Blog",
+      href: "/blog",
+    },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    twitter: "https://twitter.com/_rohankamble",
+    github: "https://github.com/Rohan3011",
+    linkedin: "https://ui.shadcn.com",
+    docs: "",
   },
 }
