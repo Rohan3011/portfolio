@@ -9,7 +9,8 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     <footer className={cn(className)}>
       <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
         <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          {/* <Icons.logo /> */}
+          <Icons.logo className="h-6 w-6" />
+          <span className="inline-block font-bold">{siteConfig.name}</span>
           <p className="text-center text-sm leading-loose md:text-left">
             Built by{" "}
             <a
@@ -40,6 +41,14 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             </a>
             .
           </p>
+        </div>
+        <div className="">
+          <a
+            href={`mailto: ${siteConfig.contact.email}`}
+            className="font-medium underline underline-offset-4"
+          >
+            {siteConfig.contact.email}
+          </a>
         </div>
         {/* <ModeToggle /> */}
       </div>
