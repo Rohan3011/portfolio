@@ -12,6 +12,7 @@ export const siteConfig = {
     {
       title: "Blog",
       href: "/blog",
+      disabled: true,
     },
     {
       title: "Contact",
