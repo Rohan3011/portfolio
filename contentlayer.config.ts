@@ -1,18 +1,142 @@
-import { defineDocumentType, makeSource } from "@contentlayer/source-files"
+import { defineDocumentType, makeSource, ComputedFields } from "contentlayer/source-files"
+
+const computedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+  },
+  slugAsParams: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+  },
+} satisfies ComputedFields;
+
+export const Doc = defineDocumentType(() => ({
+  name: "Doc",
+  filePathPattern: `docs/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+  },
+  computedFields
+}))
+
+export const Guide = defineDocumentType(() => ({
+  name: "Guide",
+  filePathPattern: `guides/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    featured: {
+      type: "boolean",
+      default: false,
+    },
+  },
+  computedFields,
+}))
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `**/*.md`,
+  filePathPattern: `blog/**/*.md`,
+  contentType: "md",
   fields: {
-    title: { type: "string", required: true },
-    date: { type: "date", required: true },
-  },
-  computedFields: {
-    url: {
+    title: {
       type: "string",
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    published: {
+      type: "boolean",
+      default: true,
+    },
+    image: {
+      type: "string",
+      required: true,
+    },
+    authors: {
+      // Reference types are not embedded.
+      // Until this is fixed, we can use a simple list.
+      // type: "reference",
+      // of: Author,
+      type: "list",
+      of: { type: "string" },
+      required: true,
     },
   },
+  computedFields,
 }))
 
-export default makeSource({ contentDirPath: "posts", documentTypes: [Post] })
+export const Author = defineDocumentType(() => ({
+  name: "Author",
+  filePathPattern: `authors/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+    avatar: {
+      type: "string",
+      required: true,
+    },
+    twitter: {
+      type: "string",
+      required: true,
+    },
+  },
+  computedFields,
+}))
+
+export const Page = defineDocumentType(() => ({
+  name: "Page",
+  filePathPattern: `pages/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+    },
+  },
+  computedFields,
+}))
+
+export default makeSource({
+  contentDirPath: "./content",
+  documentTypes: [Page, Doc, Guide, Post, Author],
+})

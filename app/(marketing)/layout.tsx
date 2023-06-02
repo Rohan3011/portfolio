@@ -29,9 +29,9 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <section className="relative flex min-h-screen flex-col">
-      <SiteHeader />
+      {/* <SiteHeader /> */}
       <div className="flex-1">{children}</div>
-      <SiteFooter className="border-t" />
+      {/* <SiteFooter className="border-t" /> */}
     </section>
   )
 }

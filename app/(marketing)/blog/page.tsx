@@ -3,13 +3,17 @@ import Link from "next/link"
 import { compareDesc } from "date-fns"
 
 import { formatDate } from "@/lib/utils"
+import { allPosts } from "@/.contentlayer/generated"
 
 export const metadata = {
   title: "Blog",
 }
 
 export default async function BlogPage() {
-  const posts: any = []
+  const posts = allPosts
+  .sort((a, b) => {
+    return compareDesc(new Date(a.date), new Date(b.date))
+  })
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
@@ -26,7 +30,7 @@ export default async function BlogPage() {
       <hr className="my-8" />
       {posts?.length ? (
         <div className="grid gap-10 sm:grid-cols-2">
-          {/* {posts.map((post, index) => (
+          {posts.map((post, index) => (
             <article
               key={post._id}
               className="group relative flex flex-col space-y-2"
@@ -54,7 +58,7 @@ export default async function BlogPage() {
                 <span className="sr-only">View Article</span>
               </Link>
             </article>
-          ))} */}
+          ))}
         </div>
       ) : (
         <p>No posts published.</p>
