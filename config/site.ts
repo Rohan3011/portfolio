@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Portfolio",
+  name: "rohanop",
   description:
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
   mainNav: [
@@ -9,23 +9,25 @@ export const siteConfig = {
       title: "Home",
       href: "/",
     },
+
     {
-      title: "Blog",
-      href: "/blog",
+      title: "About",
+      href: "#about",
     },
+
     {
       title: "Contact",
-      href: "/contact",
+      href: "#contact",
     },
   ],
   links: {
     twitter: "https://twitter.com/_rohankamble",
     github: "https://github.com/Rohan3011",
     linkedin: "https://ui.shadcn.com",
-    docs: "",
   },
   contact: {
     email: "rohankamble3011@gmail.com",
     phone: "+91 8169241264",
+    resume: "/assets/resume.pdf",
   },
 }

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Inter', sans-serif;
+  src: url("/fonts/inter.ttf");
+  font-weight: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -37,7 +43,7 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
+    --background: 256 10% 5%;
     --foreground: 213 31% 91%;
 
     --muted: 223 47% 11%;
@@ -49,16 +55,16 @@
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
+    --border: 256 10% 27%;
+    --input: 256 10% 27%;
 
-    --card: 224 71% 4%;
+    --card: 256 5% 10%;
     --card-foreground: 213 31% 91%;
 
-    --primary: 210 40% 98%;
+    --primary: 256 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
 
-    --secondary: 222.2 47.4% 11.2%;
+    --secondary: 256 20% 11.2%;
     --secondary-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;
@@ -74,6 +80,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;

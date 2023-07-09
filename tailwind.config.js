@@ -15,6 +15,9 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      'inter': ['Inter', 'sans-serif']
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -69,6 +72,7 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "external-link": "animate-out slide-out-to-top slide-out-to-left",
       },
     },
   },
