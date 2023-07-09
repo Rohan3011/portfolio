@@ -1,12 +1,9 @@
-import { lazy } from "react"
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import SkillList from "@/components/skill-list"
-
-const AnimatedBG = lazy(() => import("@/components/animated-bg"))
 
 export default function IndexPage() {
   return (
