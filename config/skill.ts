@@ -6,9 +6,9 @@ export const skill = {
       "Next.js",
       "Node.js",
       "Redux",
+      "Recoil",
       "Redux Toolkit",
       "Tailwind CSS",
-      "Recoil",
     ],
     tools: [
       "Git/GitHub",
