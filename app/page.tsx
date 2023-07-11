@@ -56,13 +56,13 @@ function AboutSection() {
       <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
         About
       </h1>
-      <div className="flex flex-col gap-4 md:flex-row justify-center align-baseline md:gap-8">
-        <article className="md:w-1/2 space-y-4">
+      <div className="flex flex-col justify-center gap-4 align-baseline md:flex-row md:gap-8">
+        <article className="space-y-4 md:w-1/2">
           <p>
-            Hello, I'm Rohan Kamble, a passionate and driven software engineer
-            with experience in developing web applications. Proficient in
-            languages like C/C++, JavaScript, TypeScript, and Go, I specialize
-            in frameworks such as React, Next.js, and Node.js.
+            Hello, I&apos;m Rohan Kamble, a passionate and driven software
+            engineer with experience in developing web applications. Proficient
+            in languages like C/C++, JavaScript, TypeScript, and Go, I
+            specialize in frameworks such as React, Next.js, and Node.js.
           </p>
           <p>
             With a strong foundation in computer science, I have contributed to
@@ -78,12 +78,12 @@ function AboutSection() {
             algorithms, and testing.
           </p>
           <p>
-            If you're looking for a highly motivated and skilled software
+            If you&pos;re looking for a highly motivated and skilled software
             engineer who is passionate about delivering high-quality solutions,
             I would be thrilled to contribute my expertise to your team.
           </p>
         </article>
-        <aside className="md:w-1/3 flex flex-col gap-4">
+        <aside className="flex flex-col gap-4 md:w-1/3">
           <SkillList />
         </aside>
       </div>
@@ -100,7 +100,7 @@ function ProjectSection() {
       <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
         Projects
       </h1>
-      <div className="flex flex-col gap-4 md:flex-row md:gap-8 justify-center items-baseline">
+      <div className="flex flex-col items-baseline justify-center gap-4 md:flex-row md:gap-8">
         {ProjectList.map((project, id) => (
           <ProjectCard project={project} />
         ))}
@@ -118,7 +118,7 @@ function ContactSection() {
       <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
         Get in Touch
       </h1>
-      <div className="flex flex-col gap-4 md:flex-row md:gap-8 justify-center items-baseline">
+      <div className="flex flex-col items-baseline justify-center gap-4 md:flex-row md:gap-8">
         <div className="flex-1 space-y-4">
           <p>
             Intrigued by what you’ve seen? Rohan would love to hear from you, so

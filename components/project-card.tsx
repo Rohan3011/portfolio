@@ -27,7 +27,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         height={800}
         alt={project.title}
       />
-      <CardHeader className="flex-row justify-between items-center">
+      <CardHeader className="flex-row items-center justify-between">
         <CardTitle>
           <Link
             title="Website"
@@ -35,7 +35,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             target="_blank"
             rel="noreferrer"
           >
-            <span className="text-2xl underline-offset-4 hover:underline text-primary">
+            <span className="text-2xl text-primary underline-offset-4 hover:underline">
               {project.title}
             </span>
           </Link>
