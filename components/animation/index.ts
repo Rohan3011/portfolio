@@ -1,3 +1,5 @@
+import { MotionValue, useTransform } from "framer-motion"
+
 // variants
 export const letterAnimation = {
   initial: {
@@ -19,4 +21,8 @@ export const BannerAnimation = {
       staggerChildren: 0.1,
     },
   },
+}
+
+export function useParallax(value: MotionValue<number>, distance: number) {
+  return useTransform(value, [0, 1], [-distance, distance])
 }
