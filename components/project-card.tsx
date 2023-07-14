@@ -57,9 +57,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </Link>
       </CardHeader>
       <CardContent>
-        {project.description.map((point, idx) => (
-          <CardDescription key={idx}>{point} </CardDescription>
-        ))}
+        <CardDescription>{project.description.at(0)} </CardDescription>
+        <Button className="p-0" size="sm" variant="link">
+          read more
+        </Button>
       </CardContent>
     </Card>
   )

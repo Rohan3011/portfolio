@@ -34,11 +34,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body
-          className={cn("min-h-screen bg-background font-inter antialiased")}
-        >
+        <body className={cn("h-full bg-background font-inter antialiased")}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
+            <div className="relative flex flex-col">
               <SiteHeader />
               <div className="flex-1">{children}</div>
               <SiteFooter className="border-t" />

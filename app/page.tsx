@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 import { ProjectList } from "@/config/project"
 import { siteConfig } from "@/config/site"
@@ -10,7 +13,12 @@ import SkillList from "@/components/skill-list"
 export default function IndexPage() {
   return (
     <>
-      <section className="container space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
+      <section
+        style={{
+          height: "calc(100vh - 65px)",
+        }}
+        className="container box-border space-y-6 pb-8 pt-6 md:pt-10 lg:py-32"
+      >
         <div className="flex max-w-[980px] flex-col items-start gap-2">
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl">
             ROHAN KAMBLE
@@ -52,12 +60,20 @@ export default function IndexPage() {
 
 function AboutSection() {
   return (
-    <section id="about" className="container space-y-6 py-8 md:py-12 lg:py-24">
+    <motion.section
+      id="about"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      style={{
+        height: "calc(100vh - 65px)",
+      }}
+      className="container space-y-6 py-8 md:py-12 lg:py-32"
+    >
       <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
         About
       </h1>
       <div className="flex flex-col justify-center gap-4 align-baseline md:flex-row md:gap-8">
-        <article className="space-y-4 md:w-1/2">
+        <article className="space-y-4 p-4 text-lg md:w-1/2 md:p-6 md:text-xl lg:text-2xl">
           <p>
             Hello, I&apos;m Rohan Kamble, a passionate and driven software
             engineer with experience in developing web applications. Proficient
@@ -71,67 +87,58 @@ function AboutSection() {
             dashboards. I thrive on challenges and continuously seek
             opportunities to expand my knowledge and skills.
           </p>
-          <p>
-            Actively participating in coding contests and open source projects,
-            I constantly aim to improve my technical expertise. This year, my
-            focus lies on enhancing my skills in software architecture,
-            algorithms, and testing.
-          </p>
-          <p>
-            If you&pos;re looking for a highly motivated and skilled software
-            engineer who is passionate about delivering high-quality solutions,
-            I would be thrilled to contribute my expertise to your team.
-          </p>
         </article>
         <aside className="flex flex-col gap-4 md:w-1/3">
           <SkillList />
         </aside>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
 function ProjectSection() {
   return (
-    <section
+    <motion.section
       id="projects"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      style={{
+        height: "calc(100vh - 65px)",
+      }}
       className="container relative z-10 grid items-center gap-6 pb-8 pt-20  md:py-10"
     >
-      <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
+      <motion.h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
         Projects
-      </h1>
+      </motion.h1>
       <div className="flex flex-col items-baseline justify-center gap-4 md:flex-row md:gap-8">
         {ProjectList.map((project, id) => (
           <ProjectCard project={project} />
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
 
 function ContactSection() {
   return (
-    <section
+    <motion.section
       id="contact"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      style={{
+        height: "calc(100vh - 65px)",
+      }}
       className="container relative z-10 grid items-center gap-6 pb-8 pt-20  md:py-10"
     >
       <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
         Get in Touch
       </h1>
-      <div className="flex flex-col items-baseline justify-center gap-4 md:flex-row md:gap-8">
-        <div className="flex-1 space-y-4">
-          <p>
-            Intrigued by what you’ve seen? Rohan would love to hear from you, so
-            don’t be shy!
-          </p>
-          <p>
-            Whether you’ve got a burning question or a project proposal, he’s
-            always ready to connect.
-          </p>
-          <p>
-            In a world of mundane developers, Rohan’s creativity, skill, and
-            passion truly set him apart. Reach out now to witness his magic
-            firsthand!
+      <div className="flex h-full flex-col items-baseline justify-center gap-4 md:flex-row md:gap-8">
+        <div className="space-y-4 p-4 text-lg md:w-1/2 md:p-6 md:text-xl lg:text-2xl">
+          <p className="">
+            If you&apos;re looking for a highly motivated and skilled software
+            engineer who is passionate about delivering high-quality solutions,
+            I would be thrilled to contribute my expertise to your team.
           </p>
         </div>
         <ul className=" flex flex-1 flex-col items-center space-x-1">
@@ -196,6 +203,6 @@ function ContactSection() {
           </Link>
         </ul>
       </div>
-    </section>
+    </motion.section>
   )
 }
