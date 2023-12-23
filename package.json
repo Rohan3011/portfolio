@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
-    "@notionhq/client": "^2.2.6",
     "@radix-ui/react-slot": "^1.0.2",
     "@react-spring/three": "^9.7.3",
     "@react-three/fiber": "^8.13.4",

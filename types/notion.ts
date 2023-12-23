@@ -65,12 +65,3 @@ export interface Page {
   url: string
   public_url: null | string
 }
-
-export interface NotionApiResponse {
-  object: string
-  results: Page[]
-  next_cursor: null
-  has_more: boolean
-  type: string
-  page: {}
-}
