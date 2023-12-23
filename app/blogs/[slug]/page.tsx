@@ -1,27 +1,31 @@
-import { format, parseISO } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
+import { allBlogs } from "contentlayer/generated"
+import { format, parseISO } from "date-fns"
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+export const generateStaticParams = async () =>
+  allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
-  return { title: post.title }
+  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug)
+  if (!blog) throw new Error(`Post not found for slug: ${params.slug}`)
+  return { title: blog.title }
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug)
+  if (!blog) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return (
-    <article className="mx-auto max-w-xl py-8">
+    <article className="[height: calc(100vh - 65px)] bg-green-500 mx-auto max-w-xl py-8">
       <div className="mb-8 text-center">
-        <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
+        <time dateTime={blog.date} className="mb-1 text-xs text-gray-600">
+          {format(parseISO(blog.date), "LLLL d, yyyy")}
         </time>
-        <h1 className="text-3xl font-bold">{post.title}</h1>
+        <h1 className="text-3xl font-bold">{blog.title}</h1>
       </div>
-      <div className="[&>*:last-child]:mb-0 [&>*]:mb-3" dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      <div
+        className="[&>*:last-child]:mb-0 [&>*]:mb-3"
+        dangerouslySetInnerHTML={{ __html: blog.body.html }}
+      />
     </article>
   )
 }
